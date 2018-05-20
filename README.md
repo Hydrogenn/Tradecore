@@ -8,3 +8,4 @@ This is running under both the name Matom (Make A Ton Of Money) and Tradecore, n
 
 The database is specified in .gitignore, so you will have to create your own superuser and other information.
 
+Also, this contains a polls app. Which is entirely useless, done as practice, and should be gutted.
