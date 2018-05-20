@@ -1,0 +1,8 @@
+<h1>{{ user.username }}</h1>
+<h4>Luxury Points: {{ user.profile.luxury }}</h4>
+<h4>Reputation: {{ user.profile.reputation }}</h4>
+<ul>
+    {% for item in user.profile.itemstack_set.all %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
