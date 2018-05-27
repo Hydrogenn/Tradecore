@@ -23,7 +23,7 @@ def new_inventory():
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    inventory = models.OneToOneField(Inventory, on_delete=models.CASCADE, related_name="owner", default=new_inventory)
+    inventory = models.OneToOneField(Inventory, on_delete=models.CASCADE, related_name="+", default=new_inventory)
     luxury = models.IntegerField(default=0)
     reputation = models.IntegerField(default=0)
     def __str__(self):
@@ -62,5 +62,5 @@ class TradeRequest(models.Model):
     sender = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="outgoing_requests")
     recipient = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="incoming_requests")
     accepted = models.BooleanField(default=False)
-    requested_items = models.OneToOneField(Inventory, on_delete=models.CASCADE, related_name="owner", default=new_inventory)
-    offered_items = models.OneToOneField(Inventory, on_delete=models.CASCADE, related_name="owner", default=new_inventory)
+    requested_items = models.OneToOneField(Inventory, on_delete=models.CASCADE, related_name="+", default=new_inventory)
+    offered_items = models.OneToOneField(Inventory, on_delete=models.CASCADE, related_name="+", default=new_inventory)
